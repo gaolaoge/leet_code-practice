@@ -1,0 +1,20 @@
+{
+  "name": "leet_code-practice",
+  "version": "1.0.0",
+  "description": "这是 1 份由 闻言 1 心 生成的 LeetCode 刷题计划。 第 1 2 阶段主要针对 简单题 ，时间允许的情况下尝试 中等题。",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "run": "t-node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.8.1",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
