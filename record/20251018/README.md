@@ -136,3 +136,8 @@ function mergeTwoLists(
 - [19] 删除链表的倒数第 N 个结点：https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
 - [160] 相交链表：https://leetcode.cn/problems/intersection-of-two-linked-lists/submissions/596143258/
 - [264] 丑数 II：https://leetcode.cn/problems/ugly-number-ii/description/
+- [378] 有序矩阵中第 K 小的元素：https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/description/
+- [373] 查找和最小的 K 对数字：https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/description/
+- [82] 删除排序链表中的重复元素 II：https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/
+- [2] 两数相加：https://leetcode.cn/problems/add-two-numbers/description/
+- [445] 两数相加 II：https://leetcode.cn/problems/add-two-numbers-ii/description/
