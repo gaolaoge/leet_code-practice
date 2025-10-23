@@ -90,3 +90,14 @@ function slidingWindow(arr: number[]): void {
 ## 例题
 
 - [26] 删除有序数组中的重复项：https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
+- [83] 删除排序链表中的重复元素：https://leetcode.cn/problems/remove-duplicates-from-sorted-list/description/
+- [27] 移除元素：https://leetcode.cn/problems/remove-duplicates-from-sorted-list/submissions/672741020/
+- [283] 移动零：https://leetcode.cn/problems/move-zeroes/description/
+- [167] 两数之和 II - 输入有序数组：https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/description/
+- [344] 反转字符串：https://leetcode.cn/problems/reverse-string/description/
+- [5] 最长回文子串：https://leetcode.cn/problems/longest-palindromic-substring/description/
+- [80] 删除有序数组中的重复项 II：https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/description/
+- [125] 验证回文串：https://leetcode.cn/problems/valid-palindrome/description/
+- [75] 颜色分类：https://leetcode.cn/problems/sort-colors/description/
+- [88] 合并两个有序数组：https://leetcode.cn/problems/merge-sorted-array/description/
+- [977] 有序数组的平方：https://leetcode.cn/problems/squares-of-a-sorted-array/description/
