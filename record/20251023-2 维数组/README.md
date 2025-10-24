@@ -64,4 +64,11 @@ const arr5 = Array.from({ length: rows }, () => Array(cols).fill(0)); // ✅ 正
 
 ## 例题
 
--
+- [151] 反转字符串中的单词：https://leetcode.cn/problems/reverse-words-in-a-string/description/
+- [48] 旋转图像：https://leetcode.cn/problems/rotate-image/description/
+- [54] 螺旋矩阵：https://leetcode.cn/problems/spiral-matrix/description/
+- [59] 螺旋矩阵 II：https://leetcode.cn/problems/spiral-matrix-ii/
+- [1329] 将矩阵按对角线排序：https://leetcode.cn/problems/sort-the-matrix-diagonally/
+- [1260] 二维网格迁移：https://leetcode.cn/problems/shift-2d-grid/
+- [867] 转置矩阵：https://leetcode.cn/problems/transpose-matrix/
+- [14] 最长公共前缀：https://leetcode.cn/problems/longest-common-prefix/description/
