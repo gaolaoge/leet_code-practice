@@ -40,3 +40,22 @@ var longestCommonPrefix = function (strs: string[]): string {
  */
 
 export {};
+
+var longestCommonPrefix2 = function (strs: string[]): string {
+  if (strs.length === 0) return '';
+  if (strs.length === 1) return strs[0];
+
+  const firstStr = strs[0];
+
+  for (let i = 0; i < firstStr.length; i++) {
+    const char = firstStr[i];
+
+    for (let j = 1; j < strs.length; j++) {
+      if (i >= strs[j].length || strs[j][i] !== char) {
+        return firstStr.substring(0, i);
+      }
+    }
+  }
+
+  return firstStr;
+};
