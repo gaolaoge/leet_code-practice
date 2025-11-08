@@ -36,3 +36,13 @@ for (let i = 0; i < nums.length; i++) {
 虽然有嵌套循环（while 在 for 内），但每个元素**最多入栈一次、出栈一次**，因此总体时间复杂度为 **O(n)**。
 
 单调栈本质是用**空间换时间**，通过维护一个有序结构，避免重复比较，快速找到满足单调性条件的元素。
+
+## 例题
+
+- [1019] 链表中的下一个更大节点：https://leetcode.cn/problems/next-greater-node-in-linked-list/
+- [1944] 队列中可以看到的人数：https://leetcode.cn/problems/number-of-visible-people-in-a-queue/
+- [1475] 商品折扣后的最终价格：https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/description/
+- [901] 股票价格跨度：https://leetcode.cn/problems/online-stock-span/
+- [402] 移掉 K 位数字：https://leetcode.cn/problems/remove-k-digits/description/
+- [853] 车队：https://leetcode.cn/problems/car-fleet/
+- [581] 最短无序连续子数组：https://leetcode.cn/problems/shortest-unsorted-continuous-subarray/description/
