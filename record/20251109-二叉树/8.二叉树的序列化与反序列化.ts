@@ -22,12 +22,52 @@ import { TreeNode } from '../../utils/nodes';
 /*
  * Encodes a tree to a single string.
  */
-function serialize(root: TreeNode | null): string {}
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+  const res: string[] = [];
+
+  const build = (node: TreeNode | null) => {
+    if (node === null) {
+      if (res.length !== 0) {
+        res.push('#');
+      }
+    } else {
+      res.push(String(node.val));
+      build(node.left!);
+      build(node.right!);
+    }
+  };
+  build(root);
+
+  return res.join(',');
+}
 
 /*
  * Decodes your encoded data to tree.
  */
-function deserialize(data: string): TreeNode | null {}
+function deserialize(data: string): TreeNode | null {
+  const res = data.split(',').filter(Boolean);
+  if (res.length === 0) return null;
+
+  let index = 0;
+
+  const build = (): TreeNode | null => {
+    // if (index >= res.length) {
+    //     return null;
+    // }
+    const val = res[index];
+    index++;
+    const root = val === '#' ? null : new TreeNode(Number(val));
+    if (root !== null) {
+      root.left = build();
+      root.right = build();
+    }
+    return root;
+  };
+  return build();
+}
 
 /**
  * Your functions will be called as such:

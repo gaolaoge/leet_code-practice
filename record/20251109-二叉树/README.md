@@ -1,7 +1,3 @@
-# 二叉树
-
-## 定义
-
 二叉树是一种树形数据结构，其中每个节点最多有两个子节点，通常称为左子节点和右子节点。
 
 ## 基本特点
@@ -49,3 +45,17 @@
 - 查找/插入/删除：
   - 平衡二叉树：O(log n)
   - 最坏情况（退化为链表）：O(n)
+
+## 例题
+
+- [226] 翻转二叉树：https://leetcode.cn/problems/invert-binary-tree/
+- [114] 二叉树展开为链表：https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/
+- [116] 填充每个节点的下一个右侧节点指针：https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/description/
+- [654] 最大二叉树：https://leetcode.cn/problems/maximum-binary-tree/description/
+- [105] 从前序与中序遍历序列构造二叉树：https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
+- [106] 从中序与后序遍历序列构造二叉树：https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/
+- [889] 根据前序和后序遍历构造二叉树：https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/description/
+- [297] 二叉树的序列化与反序列化：https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/
+- [236] 二叉树的最近公共祖先：https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/
+- [235] 二叉搜索树的最近公共祖先：https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
+- [222] 完全二叉树的节点个数：https://leetcode.cn/problems/count-complete-tree-nodes/description/
