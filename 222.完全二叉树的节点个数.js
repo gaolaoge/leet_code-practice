@@ -1,8 +1,8 @@
 /*
- * @lc app=leetcode.cn id=654 lang=javascript
+ * @lc app=leetcode.cn id=222 lang=javascript
  * @lcpr version=30300
  *
- * [654] 最大二叉树
+ * [222] 完全二叉树的节点个数
  */
 
 // @lc code=start
@@ -15,10 +15,10 @@
  * }
  */
 /**
- * @param {number[]} nums
- * @return {TreeNode}
+ * @param {TreeNode} root
+ * @return {number}
  */
-var constructMaximumBinaryTree = function(nums) {
+var countNodes = function(root) {
     
 };
 // @lc code=end
@@ -27,11 +27,15 @@ var constructMaximumBinaryTree = function(nums) {
 
 /*
 // @lcpr case=start
-// [3,2,1,6,0,5]\n
+// [1,2,3,4,5,6]\n
 // @lcpr case=end
 
 // @lcpr case=start
-// [3,2,1]\n
+// []\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n
 // @lcpr case=end
 
  */
