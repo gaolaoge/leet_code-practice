@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=264 lang=typescript
- * @lcpr version=30203
- *
  * [264] 丑数 II
  * https://leetcode.cn/problems/ugly-number-ii/description/
  */
@@ -119,6 +116,8 @@ function nthUglyNumber(n: number): number {
 /**
  * 特点：
  * 每个丑数都可以通过前面的丑数乘以 2、3 或 5 得到。
+ * 丑数 = 2^a × 3^b × 5^c （其中a,b,c ≥ 0）
+ * [1, 2, 3, 4, 5, 6, 8, 9, 10, 12] 是由前 10 个丑数组成的序列。
  */
 
 /**
@@ -128,3 +127,106 @@ function nthUglyNumber(n: number): number {
  */
 
 export {};
+
+class _SimpleMinPQ {
+  heap: number[];
+  constructor() {
+    this.heap = [];
+  }
+
+  parentIndex(index: number): number {
+    return Math.floor((index - 1) / 2);
+  }
+
+  leftIndex(index: number): number {
+    return index * 2 + 1;
+  }
+
+  rightIndex(index: number): number {
+    return index * 2 + 2;
+  }
+
+  push(val: number) {
+    this.heap.push(val);
+    this.swim(this.heap.length - 1);
+  }
+
+  pop() {
+    const res = this.heap[0];
+
+    this.heap[0] = this.heap[this.heap.length - 1];
+    this.heap.length -= 1;
+
+    this.sink(0);
+
+    return res;
+  }
+
+  // 上浮
+  swim(index: number): void {
+    while (index > 0) {
+      const _parentIndex = this.parentIndex(index);
+      if (this.heap[index] < this.heap[_parentIndex]) {
+        this.swap(index, _parentIndex);
+        index = _parentIndex;
+      } else {
+        break;
+      }
+    }
+  }
+
+  // 下沉
+  sink(index: number): void {
+    while (true) {
+      const _leftIndex = this.leftIndex(index);
+      const _rightIndex = this.rightIndex(index);
+      let minIndex = index;
+
+      if (
+        _leftIndex < this.heap.length &&
+        this.heap[minIndex] > this.heap[_leftIndex]
+      ) {
+        minIndex = _leftIndex;
+      }
+
+      if (
+        _rightIndex < this.heap.length &&
+        this.heap[minIndex] > this.heap[_rightIndex]
+      ) {
+        minIndex = _rightIndex;
+      }
+
+      if (minIndex === index) break;
+      this.swap(index, minIndex);
+      index = minIndex;
+    }
+  }
+
+  swap(index1: number, index2: number) {
+    [this.heap[index1], this.heap[index2]] = [
+      this.heap[index2],
+      this.heap[index1],
+    ];
+  }
+}
+
+function nthUglyNumber2(n: number): number {
+  let time = 1;
+  let currentVal = 1;
+  let set = new Set();
+  const pq = new _SimpleMinPQ();
+
+  while (time < n) {
+    for (let word of [2, 3, 5]) {
+      const val = currentVal * word;
+      if (!set.has(val)) {
+        set.add(val);
+        pq.push(val);
+      }
+    }
+    currentVal = pq.pop();
+    time++;
+  }
+
+  return currentVal;
+}

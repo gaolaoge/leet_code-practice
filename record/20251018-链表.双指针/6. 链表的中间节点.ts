@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=876 lang=typescript
- * @lcpr version=30203
- *
  * [876] 链表的中间结点
  * https://leetcode.cn/problems/middle-of-the-linked-list/
  */
@@ -35,3 +32,5 @@ function middleNode(head: ListNode | null): ListNode | null {
 /**
  * 快慢针
  */
+
+export {};

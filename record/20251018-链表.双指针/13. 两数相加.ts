@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=2 lang=javascript
- * @lcpr version=30300
- *
  * [2] 两数相加
  * https://leetcode.cn/problems/add-two-numbers/description/
  */
@@ -55,3 +52,50 @@ var addTwoNumbers = function (l1: ListNode, l2: ListNode) {
 /**
  * 前后针，间距为 0
  */
+
+function _addTwoNumbers(
+  l1: ListNode | null,
+  l2: ListNode | null
+): ListNode | null {
+  if (!l1 || !l2) return l1 || l2;
+
+  const res = new ListNode(-1);
+  let curr = res;
+  let a = l1;
+  let b = l2;
+  let isTen = false;
+
+  while (a && b) {
+    let val = a.val + b.val + (isTen ? 1 : 0);
+    if (val > 9) {
+      isTen = true;
+    } else {
+      isTen = false;
+    }
+    curr.next = new ListNode(val % 10);
+    curr = curr.next;
+    a = a.next!;
+    b = b.next!;
+  }
+
+  if (!a || !b) {
+    let temp = a || b;
+    while (temp) {
+      let val = temp.val + (isTen ? 1 : 0);
+      if (val > 9) {
+        isTen = true;
+      } else {
+        isTen = false;
+      }
+      curr.next = new ListNode(val % 10);
+      curr = curr.next;
+      temp = temp.next!;
+    }
+  }
+
+  if (isTen) {
+    curr.next = new ListNode(1);
+  }
+
+  return res.next;
+}

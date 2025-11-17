@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=445 lang=javascript
- * @lcpr version=30300
- *
  * [445] 两数相加 II
  * https://leetcode.cn/problems/add-two-numbers-ii/description/
  */
@@ -70,3 +67,53 @@ var addTwoNumbers = function (l1: ListNode, l2: ListNode) {
  * 本题是「两数相加」的进阶版本，但题目要求不要「翻转链表」，
  * 使用栈存储链表内容，确保先进后出，即可借用「两数相加」的思路完成解题。
  */
+
+function addTwoNumbers2(
+  l1: ListNode | null,
+  l2: ListNode | null
+): ListNode | null {
+  const dummy = new ListNode(-1);
+  let node = dummy;
+  const nodeList = [];
+
+  const stack1 = [];
+  const stack2 = [];
+
+  while (l1) {
+    stack1.push(l1.val);
+    l1 = l1.next;
+  }
+
+  while (l2) {
+    stack2.push(l2.val);
+    l2 = l2.next;
+  }
+
+  let currVal: number;
+  let outTen = false;
+
+  let temp1 = stack1.pop();
+  let temp2 = stack2.pop();
+
+  while (temp1 !== undefined || temp2 !== undefined) {
+    currVal = (temp1 || 0) + (temp2 || 0) + (outTen ? 1 : 0);
+    if (currVal > 9) outTen = true;
+    else outTen = false;
+
+    nodeList.push(currVal % 10);
+
+    temp1 = stack1.pop();
+    temp2 = stack2.pop();
+  }
+
+  if (outTen) {
+    nodeList.push(1);
+  }
+
+  while (nodeList.length > 0) {
+    node.next = new ListNode(nodeList.pop());
+    node = node.next;
+  }
+
+  return dummy.next;
+}

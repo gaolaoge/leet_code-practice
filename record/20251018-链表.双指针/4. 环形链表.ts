@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=141 lang=typescript
- * @lcpr version=30203
- *
  * [141] 环形链表
  * https://leetcode.cn/problems/linked-list-cycle/description/
  */
@@ -36,5 +33,7 @@ function hasCycle(head: ListNode | null): boolean {
 }
 
 /**
- * 快慢针
+ * 快慢针：若存在 fast 等于 slow 则存在环，若链表终止，则没有环；
  */
+
+export {};

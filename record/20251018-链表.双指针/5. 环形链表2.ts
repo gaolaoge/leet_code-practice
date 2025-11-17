@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=142 lang=typescript
- * @lcpr version=30203
- *
  * [142] 环形链表 II
  * https://leetcode.cn/problems/linked-list-cycle-ii/description/
  */
@@ -56,7 +53,7 @@ function detectCycle(head: ListNode | null): ListNode | null {
  * 设 环链长度为 n，快慢针初始距离为 d，
  * 则 0 <= d < n，
  * 则 快慢针每移动1次，距离d减1，
- * 最坏情况：d = n-1（快针在慢针后面1步），
+ * 最坏情况：d = n-1（快针在慢针前面1步），
  * 则 需要移动 n-1 次，距离变为 0，两针相遇，
  * 因为 n-1 < n，
  * 所以 快慢针必然在第一圈内相遇，
@@ -76,3 +73,5 @@ function detectCycle(head: ListNode | null): ListNode | null {
  * 2a + 2b = a + 2b + c
  * a = c
  */
+
+export {};

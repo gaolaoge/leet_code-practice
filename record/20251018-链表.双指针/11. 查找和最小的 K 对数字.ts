@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=373 lang=javascript
- * @lcpr version=30300
- *
  * [373] 查找和最小的 K 对数字
  * https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/description/
  */

@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=86 lang=typescript
- * @lcpr version=30203
- *
  * [86] 分隔链表
  * https://leetcode.cn/problems/partition-list/description/
  */
@@ -39,8 +36,31 @@ function partition(head: ListNode | null, x: number): ListNode | null {
   return aHead.next;
 }
 
+function partition2(head: ListNode | null, x: number): ListNode | null {
+  let current = head;
+  if (!current) return null;
+
+  const a = new ListNode(-1);
+  const b = new ListNode(-1);
+  let aHead = a;
+  let bHead = b;
+  while (current) {
+    if (current.val < x) {
+      aHead.next = current;
+      aHead = aHead.next;
+    } else {
+      bHead.next = current;
+      bHead = bHead.next;
+    }
+    current = current.next;
+  }
+  aHead.next = b.next;
+  bHead.next = null;
+  return a.next;
+}
+
 /**
- * 最佳解法：双链表法
+ * 维护双链表记录左右节点，然后拼接
  */
 
 export {};

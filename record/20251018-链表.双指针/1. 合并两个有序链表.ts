@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=21 lang=typescript
- * @lcpr version=30203
- *
  * [21] 合并两个有序链表
  * https://leetcode.cn/problems/merge-two-sorted-lists/description/
  */
@@ -31,9 +28,55 @@ function mergeTwoLists(
   }
 }
 
+function mergeTwoLists2(
+  list1: ListNode | null,
+  list2: ListNode | null
+): ListNode | null {
+  const head = new ListNode(0);
+  let temp = head;
+  let a = list1;
+  let b = list2;
+
+  while (a || b) {
+    if (!a || a?.val > b!.val) {
+      temp.next = b;
+      b = b!.next;
+    } else {
+      temp.next = a;
+      a = a.next;
+    }
+    temp = temp.next!;
+  }
+
+  return head.next;
+}
+
+function mergeTwoLists3(
+  list1: ListNode | null,
+  list2: ListNode | null
+): ListNode | null {
+  const dummy = new ListNode(0);
+  let current = dummy;
+
+  while (list1 && list2) {
+    if (list1.val < list2.val) {
+      current.next = list1;
+      list1 = list1.next;
+    } else {
+      current.next = list2;
+      list2 = list2.next;
+    }
+    current = current.next;
+  }
+
+  if (list1) current.next = list1;
+  if (list2) current.next = list2;
+
+  return dummy.next;
+}
+
 /**
- * 左右针
- * 递归
+ * 左右针 && 递归 || 迭代
  */
 
 export {};

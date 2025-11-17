@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=378 lang=javascript
- * @lcpr version=30300
- *
  * [378] 有序矩阵中第 K 小的元素
  * https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/description/
  */

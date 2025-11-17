@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=160 lang=typescript
- * @lcpr version=30203
- *
  * [160] 相交链表
  * https://leetcode.cn/problems/intersection-of-two-linked-lists/submissions/596143258/
  */
@@ -53,3 +50,5 @@ function getIntersectionNode(
  * 通过拼接 headA = headA + headB ,headB = headB + headA ，
  * 此时，两条链表长度相同，末尾处相同的节点位置也会确保相同。
  */
+
+export {};
