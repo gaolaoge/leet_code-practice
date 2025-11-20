@@ -1,12 +1,8 @@
 /*
- * @lc app=leetcode.cn id=27 lang=javascript
- * @lcpr version=30300
- *
  * [27] 移除元素
- * https://leetcode.cn/problems/remove-duplicates-from-sorted-list/submissions/672741020/
+ * https://leetcode.cn/problems/remove-element/description/
  */
 
-// @lc code=start
 /**
  * @param {number[]} nums
  * @param {number} val

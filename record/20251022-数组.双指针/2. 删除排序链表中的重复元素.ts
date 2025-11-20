@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=83 lang=javascript
- * @lcpr version=30300
- *
  * [83] 删除排序链表中的重复元素
  * https://leetcode.cn/problems/remove-duplicates-from-sorted-list/description/
  */
@@ -27,3 +24,28 @@ var deleteDuplicates = function (head: ListNode) {
 
   return res.next;
 };
+
+/**
+ *
+ */
+
+export {};
+
+function deleteDuplicates2(head: ListNode | null): ListNode | null {
+  if (!head) return null;
+
+  let left = head;
+  let right = left.next;
+
+  while (right) {
+    if (right.val !== left.val) {
+      left.next = right;
+      left = left.next;
+    }
+    right = right.next;
+  }
+
+  left.next = null;
+
+  return head;
+}
