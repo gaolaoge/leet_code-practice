@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=206 lang=javascript
- * @lcpr version=30300
- *
  * [206] 反转链表
  * https://leetcode.cn/problems/reverse-linked-list/description/
  */

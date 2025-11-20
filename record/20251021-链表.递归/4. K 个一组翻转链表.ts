@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=25 lang=javascript
- * @lcpr version=30300
- *
  * [25] K 个一组翻转链表
  * https://leetcode.cn/problems/reverse-nodes-in-k-group/description/
  */
@@ -14,45 +11,37 @@ import { ListNode } from '../../utils/nodes';
  * @return {ListNode}
  */
 const reverseKGroup = (head: ListNode | null, k: number): ListNode | null => {
-  if (!head || !head.next) {
-    return head;
-  }
+  if (!head) return null;
 
-  const res = new ListNode(-1, head);
-  let curr: ListNode | null = res;
+  const prev = new ListNode(0, head);
+  let curr: ListNode | null = head;
   let index = 0;
 
-  // 1. 判断剩余 链表 是否足够翻转
+  // 判断是足够翻转 1 次
   while (index < k) {
-    if (curr.next) {
+    if (curr) {
       curr = curr.next;
       index++;
-    } else {
-      return head;
-    }
+    } else return prev.next;
   }
 
-  // 2. 翻转
-  curr = head;
+  // 进行翻转
   index = 0;
-  let prev = null;
+  curr = head;
+  let tempPrev: ListNode | null = null;
   while (index < k) {
-    const next: ListNode | null = curr.next!;
-    curr.next = prev;
-    prev = curr;
+    const next: ListNode | null = curr!.next;
+    curr!.next = tempPrev!;
+    tempPrev = curr!;
     curr = next;
     index++;
   }
 
-  let start = prev;
-  let end = curr;
+  // 拼接 + 向下递归
+  prev.next = tempPrev!;
+  head.next = reverseKGroup(curr, k);
 
-  // 3. 递归向后
-  if (end) {
-    head.next = reverseKGroup(end, k);
-  }
-
-  return start;
+  return prev.next;
 };
 
 /**

@@ -1,7 +1,4 @@
 /*
- * @lc app=leetcode.cn id=92 lang=javascript
- * @lcpr version=30300
- *
  * [92] 反转链表 II
  * https://leetcode.cn/problems/reverse-linked-list-ii/description/
  */
@@ -19,48 +16,38 @@ var reverseBetween = function (
   left: number,
   right: number
 ): ListNode | null {
-  if (!head || !head.next) {
-    return head;
+  const prev = new ListNode(-1, head);
+  let curr = prev;
+  let index = 0;
+
+  while (index < left - 1) {
+    curr = curr.next!;
+    index++;
   }
 
-  let a = 1;
-  let aNode = head;
-  const res = new ListNode(-1, head);
-  let prevANode = res;
+  const reverse = (node: ListNode | null): ListNode | null => {
+    if (!node) return null;
+    const root = node!;
+    let prev = null;
+    while (index < right) {
+      const next: ListNode | null = node!.next;
+      node!.next = prev;
+      prev = node;
+      node = next;
+      index++;
+    }
+    root.next = node;
+    return prev;
+  };
 
-  while (a < left) {
-    prevANode = aNode;
-    aNode = aNode.next!;
-    a++;
-  }
+  curr.next = reverse(curr.next)!;
 
-  const nextNode = reverseLink(aNode!, right - left + 1);
-
-  prevANode.next = nextNode;
-
-  return res.next;
-};
-
-const reverseLink = (head: ListNode, time: number): ListNode => {
-  const start = head;
-  let prev: ListNode;
-  let tempTime = 0;
-
-  while (head && tempTime < time) {
-    const next = head.next as ListNode;
-    head.next = prev! as ListNode;
-    prev = head;
-    head = next;
-    tempTime++;
-  }
-
-  start.next = head;
-
-  return prev!;
+  return prev.next;
 };
 
 /**
- * 边界 case 比较多
+ * 配置 冗余头部 避免 head 需要翻转；
+ * 移动到 left 边界开始反转，翻转到 right 后将剩余节点 接连到当前尾部（翻转前的首部）
  */
 
 export {};
