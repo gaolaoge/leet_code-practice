@@ -1,55 +1,57 @@
 /*
- * @lc app=leetcode.cn id=5 lang=javascript
- * @lcpr version=30300
- *
  * [5] 最长回文子串
  * https://leetcode.cn/problems/longest-palindromic-substring/description/
  */
 
-// @lc code=start
 /**
  * @param {string} s
  * @return {string}
  */
 var longestPalindrome = function (s: string): string {
-  if (s.length < 2) return s;
-  let maxStr = s[0];
-  let a = 0;
-  let b = 1;
-  let res = '';
+  const len = s.length;
+  if (len < 2) return s;
 
-  while (a < s.length) {
-    b = 1;
-    if (s[a - b + 1] === s[a + b]) {
-      while (a + b < s.length && a - b + 1 >= 0) {
-        if (s[a - b + 1] === s[a + b]) {
-          res = s.slice(a - b + 1, a + b + 1);
-          if (res.length > maxStr.length) {
-            maxStr = res;
-          }
-          b++;
-        } else {
-          break;
-        }
+  let left;
+  let right;
+  let maxPalindromStr = '';
+  let maxStrLen = 0;
+
+  const searchPalindrome = (index: number, isDoubleMid: boolean): string => {
+    let res = '';
+    left = index;
+    right = index + (isDoubleMid ? 1 : 0);
+
+    while (0 <= left && right < len) {
+      if (s[left] !== s[right]) break;
+      else {
+        left--;
+        right++;
       }
     }
-    b = 1;
-    if (s[a - b] === s[a + b]) {
-      while (a + b < s.length && a - b >= 0) {
-        if (s[a - b] === s[a + b]) {
-          res = s.slice(a - b, a + b + 1);
-          if (res.length > maxStr.length) {
-            maxStr = res;
-          }
-          b++;
-        } else {
-          break;
-        }
-      }
+
+    return (res = s.slice(left + 1, right - 1)); // 省去 while 内遍历追加 res 消耗
+  };
+
+  for (let i = 0; i < len; i++) {
+    const singleRes = searchPalindrome(i, false);
+    const doubleRes = searchPalindrome(i, true);
+
+    if (singleRes.length > maxStrLen) {
+      maxPalindromStr = singleRes;
+      maxStrLen = singleRes.length;
     }
-    a++;
+
+    if (doubleRes.length > maxStrLen) {
+      maxPalindromStr = doubleRes;
+      maxStrLen = doubleRes.length;
+    }
   }
-  return maxStr;
+
+  return maxPalindromStr;
 };
+
+/**
+ * 遍历 + 基于中心扩展 + 双指针
+ */
 
 export {};
