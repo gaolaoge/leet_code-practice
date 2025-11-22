@@ -1,12 +1,8 @@
 /*
- * @lc app=leetcode.cn id=75 lang=javascript
- * @lcpr version=30300
- *
  * [75] 颜色分类
  * https://leetcode.cn/problems/sort-colors/description/
  */
 
-// @lc code=start
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
@@ -35,6 +31,24 @@ function sortColors(nums: number[]): void {
  * - left：指向下一个 0 应该放的位置
  * - right：指向下一个 2 应该放的位置
  * - curr：当前遍历的位置
+ * 注：curr 所在位置值确定符合预期时才移动
  */
 
 export {};
+
+function sortColors2(nums: number[]): void {
+  let left = 0;
+  let right = nums.length - 1;
+  let index = right;
+
+  while (index >= left) {
+    if (nums[index] === 0) {
+      [nums[left], nums[index]] = [nums[index], nums[left]];
+      left++;
+    } else if (nums[index] === 2) {
+      [nums[right], nums[index]] = [nums[index], nums[right]];
+      right--;
+      index--;
+    } else index--;
+  }
+}

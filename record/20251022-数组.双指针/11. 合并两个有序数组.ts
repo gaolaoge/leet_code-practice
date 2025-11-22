@@ -1,12 +1,8 @@
 /*
- * @lc app=leetcode.cn id=88 lang=javascript
- * @lcpr version=30300
- *
  * [88] 合并两个有序数组
  * https://leetcode.cn/problems/merge-sorted-array/description/
  */
 
-// @lc code=start
 /**
  * @param {number[]} nums1
  * @param {number} m
@@ -42,3 +38,13 @@ var merge = function (
  */
 
 export {};
+
+function merge2(nums1: number[], m: number, nums2: number[], n: number): void {
+  let index = m + n;
+
+  while (index > 0) {
+    if (m === 0 || nums2[n - 1] > nums1[m - 1]) nums1[index] = nums2[--n];
+    else nums1[index] = nums1[--m];
+    index--;
+  }
+}
