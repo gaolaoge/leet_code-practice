@@ -69,8 +69,7 @@ function mergeTwoLists3(
     current = current.next;
   }
 
-  if (list1) current.next = list1;
-  if (list2) current.next = list2;
+  current.next = list1 || list2;
 
   return dummy.next;
 }
